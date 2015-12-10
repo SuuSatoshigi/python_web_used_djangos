@@ -44,3 +44,7 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+# 乱入的个人简历
+def personal_resume(request):
+    return render(request, 'blog/personal_resume.html', {})
