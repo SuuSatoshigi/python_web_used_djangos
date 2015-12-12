@@ -1,16 +1,28 @@
-{% extends 'blog/base.html' %}
-
-{% block content %}
-    <div class="post">
+{% extends 'blog/index.html' %}
+{% block title %}
+<h1>{{ post.title }}</h1>
+    
+    <hr class="small">
+    <span class="subheading">
         {% if post.published_date %}
             <div class="date">
                 {{ post.published_date }}
             </div>
         {% endif %}
+    </span>
+{% endblock title %}
+
+{% block content %}
+    <div class="post">
+        
         {% if user.is_authenticated %}
             <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         {% endif %}
-        <h1>{{ post.title }}</h1>
+        
+        {% autoescape off %}
         <p>{{ post.text|linebreaks }}</p>
+        {% endautoescape %}
+        
     </div>
 {% endblock %}
+
