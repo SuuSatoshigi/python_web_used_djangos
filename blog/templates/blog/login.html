@@ -1,0 +1,73 @@
+<!-- 为模板引入staticfiles相关的辅助方法 -->
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>login</title>
+    </head>
+    <body text="#b5e853">
+        <center>
+            <div class="form_message">
+                <div class="error_message">
+                     {% if form.errors %}
+                        <p>Your username and password didn't match. Please try again.</p>
+                    {% endif %}
+                </div>
+               
+                <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+                {% csrf_token %}
+                        <table>
+                        <tr>
+                            <td>{{ form.username.label_tag }}</td>
+                            <td>{{ form.username }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form.password.label_tag }}</td>
+                            <td>{{ form.password }}</td>
+                        </tr>
+                        </table>
+
+                    <input type="submit" value="login" />
+                    <input type="hidden" name="next" value="{{ next }}" />
+                </form>
+            </div>
+        </center>
+        <Style TYPE="text/css">
+            .form_message {
+                position: absolute;  
+                width:400px;  
+                height:200px;  
+                left:50%;  
+                top:50%;  
+                margin-left:-200px;  
+                margin-top:-100px; 
+            }
+
+            .error_message {
+
+            }
+
+            input {
+                background-color: #151515;
+                border: 0px;
+                border-bottom: 1px inset;
+                border-bottom-color: #b5e853;
+                font-size: 25px;
+                font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+                color: #b5e853;
+            }
+
+
+
+            body{
+                background-color: #151515;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                font-size: 30px;
+                font-weight: normal;
+                font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+            }
+        </style>
+    </body>
+</html>

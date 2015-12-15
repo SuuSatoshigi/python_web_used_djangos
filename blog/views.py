@@ -4,6 +4,7 @@ from .models import Post
 from django.shortcuts import render, get_object_or_404
 from .forms import PostForm
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required  
 
 # 首页
 # return （返回）用 render 方法渲染模板 blog/post_list.html 而得到的结果.
@@ -46,5 +47,11 @@ def post_edit(request, pk):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 # 乱入的个人简历
+@login_required
 def personal_resume(request):
     return render(request, 'blog/personal_resume.html', {})
+
+# 乱入的项目介绍
+@login_required
+def project_introduction(request):
+    return render(request, 'blog/project_introduction.html', {})
