@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.utils import timezone
 from .models import Post
+from .models import Project
 from django.shortcuts import render, get_object_or_404
 from .forms import PostForm
 from django.shortcuts import redirect
@@ -46,6 +47,8 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
+#----------------------------------------------------------------------
+
 # 乱入的个人简历
 @login_required
 def personal_resume(request):
@@ -54,4 +57,5 @@ def personal_resume(request):
 # 乱入的项目介绍
 @login_required
 def project_introduction(request):
-    return render(request, 'blog/project_introduction.html', {})
+    projects = Project.objects.filter(is_project_show=True).order_by('order_priority')
+    return render(request, 'blog/project_introduction.html', {'projects':projects})

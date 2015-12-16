@@ -85,6 +85,11 @@ section img {
   max-width: 100%
 }
 
+img {
+  min-width: 40%;
+  max-width: 100%;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
@@ -142,6 +147,8 @@ ul li:before {
   margin-right: 21px;
   line-height: 16px;
 }
+
+
 
 blockquote {
   color: #aaa;
