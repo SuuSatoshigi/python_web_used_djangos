@@ -25,36 +25,41 @@
    <ul>
     {% for project in projects %}
       <li>
-        <!-- 项目名称 -->
-        <h3>项目名称:</h3>
-        #{{ project.project_name }}
-
-        <!-- 项目架构 -->
-        {% if project.project_scaffold_text %}
-          <h3>项目架构:</h3>
-          {{ project.project_scaffold_text }}
-        {% endif %}
-
-        <!-- 项目功能 -->
-        {% if project.project_self_function %}
-          <h3>项目功能:</h3>
-          {{ project.project_self_function }}
-        {% endif %}
-
-        <!-- 项目技术 -->
-        {% if  project.project_skill %}
-          <h3>项目技术:</h3>
-          {{ project.project_skill }}
-        {% endif %}
-
-        <!-- 项目截图 -->
-        {% if  project.project_cut %}
-          <h3>项目截图:</h3>
-          <!-- ![]({% static '{{ project.project_cut }}' %}) -->
-          {{ project.project_cut }}
-        {% endif %}
-        
-        
+        <ol>
+          <!-- 项目名称 -->
+          <li><h3>项目名称:</h3>
+            {{ project.project_name }}
+          </li>
+          <!-- 项目架构 -->
+          <li>
+            {% if project.project_scaffold_text %}
+              <h3>项目架构:</h3>
+              {{ project.project_scaffold_text }}
+            {% endif %}
+          </li>
+          <!-- 项目功能 -->
+          <li>
+            {% if project.project_self_function %}
+              <h3>项目功能:</h3>
+              {{ project.project_self_function }}
+            {% endif %}
+          </li>
+          <!-- 项目技术 -->
+          <li>
+            {% if  project.project_skill %}
+              <h3>项目技术:</h3>
+              {{ project.project_skill }}
+            {% endif %}
+          </li>
+          <!-- 项目截图 -->
+          <li>
+            {% if  project.project_cut %}
+              <h3>项目截图:</h3>
+              <!-- ![]({% static '{{ project.project_cut }}' %}) -->
+              {{ project.project_cut }}
+            {% endif %}
+          </li>
+        </ol>
       </li>
       <hr>
     
