@@ -34,10 +34,17 @@
     margin-right: 20px;
 }
 
+
 .post {
     margin-bottom: 70px;
 }
 
 .post h1 a, .post h1 a:visited {
     color: #000000;
+}
+
+.post img {
+    width: 100%;
+    /*border-top: 5px;*/
+    padding-top: 15px;
 }
